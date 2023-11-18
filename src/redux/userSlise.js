@@ -1,3 +1,5 @@
+import toast from 'react-hot-toast';
+
 const { createSlice } = require('@reduxjs/toolkit');
 const { fetchCreateUser, fetchLoginUser, refreshUser } = require('./operations');
 
@@ -24,16 +26,19 @@ const registerSlise = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchCreateUser.pending, (state, action) => {
-        console.log(action.payload);
+
       })
       .addCase(fetchCreateUser.fulfilled, (state, action) => {
         state.authorizationToken = action.payload.token;
         state.user = action.payload.user;
         state.isLoggedIn = true;
         state.authorizationToken = true
+        toast.success('registration was successful')
+
       })
       .addCase(fetchCreateUser.rejected, (state, action) => {
-        console.log(action.payload);
+        console.log(action);
+       toast.error('Check the correctness of the data')
       })
       .addCase(fetchLoginUser.fulfilled, (state, action) => {
 
@@ -41,8 +46,9 @@ const registerSlise = createSlice({
         state.user = action.payload.user;
         state.isLoggedIn = true;
       })
-      .addCase(fetchLoginUser.rejected, (state, action) => {
-        console.log(action.payload);
+      .addCase(fetchLoginUser.rejected, ( action) => {
+        toast.error('Invalid email or password')
+
       })
      .addCase( refreshUser.pending, (state) => {
         state.isRefreshing = true;

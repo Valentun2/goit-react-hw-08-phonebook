@@ -30,7 +30,7 @@ const HomePage = () => {
         <Filter />
         <ContactList />
         
-        <Toaster />
+        
   
         
       </div>  );

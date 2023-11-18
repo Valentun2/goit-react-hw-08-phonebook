@@ -44,6 +44,6 @@ outline: none;
 transition: all .2s ease-in-out;
 
 &:focus{
-    border: 2px solid blue;
+    border: 2px solid #000080;
 }
 `

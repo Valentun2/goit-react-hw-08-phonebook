@@ -2,7 +2,6 @@ import { fetchCreateUser, fetchLoginUser, } from 'redux/operations';
 import {
   Container,
   ToggleContainer,
-
   Toggle,
   Form,
   FormContainer,
@@ -17,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from 'redux/selectors';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 const LoginForm = () => {
   
@@ -54,7 +54,6 @@ user.authorizationToken &&  navigate('/')
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    console.log(newUser);
     dispatch(fetchCreateUser(newUser));
   };
 
@@ -65,7 +64,6 @@ user.authorizationToken &&  navigate('/')
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    console.log(user);
     dispatch(fetchLoginUser(user));
   };
 
@@ -80,7 +78,7 @@ user.authorizationToken &&  navigate('/')
           <Input type="text" name="name" placeholder="name" />
 
           <Input type="email" name="email" placeholder="email" />
-          <Input type="password" name="password" placeholder="password" />
+          <Input type="password" name="password" placeholder="password" minLength={7} />
 
           <FormButton>Create</FormButton>
         </Form>

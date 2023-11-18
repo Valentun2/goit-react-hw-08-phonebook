@@ -5,7 +5,7 @@ export const Button = styled.button`
 font-size: 12px;
 transition: all .3s ease-in-out;
 
-padding: 5px 5px;
+padding: 3px 5px;
     border: 1px solid grey;
     border-radius: 5px;
     cursor: pointer;
@@ -29,6 +29,6 @@ transition: all .4s ease-in-out;
 
 `
 export const Name = styled.p`
-padding: 10px;
+padding: 5px;
 font-size:20px
 `

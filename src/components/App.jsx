@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from 'redux/selectors';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/operations';
+import { Toaster } from 'react-hot-toast';
 
 export const App = () => {
 
@@ -32,7 +33,7 @@ export const App = () => {
       <Route path='login' element={ <RestrictedRoute redirectTo="/" component={<LoginPage/>}/>} />
 
     </Routes>
-    
+    <Toaster />
     </>
   );
 };

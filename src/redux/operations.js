@@ -64,7 +64,6 @@ export const fetchAddContact = createAsyncThunk(
 export const fetchCreateUser = createAsyncThunk(
   'login/addUser',
   async (arr, thunkAPI) => {
-    console.log(arr);
     try {
       const response = await axios.post(
         'https://connections-api.herokuapp.com/users/signup',
