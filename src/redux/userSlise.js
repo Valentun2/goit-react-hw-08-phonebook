@@ -1,4 +1,3 @@
-import { Navigate } from 'react-router-dom';
 
 const { createSlice } = require('@reduxjs/toolkit');
 const { fetchCreateUser, fetchLoginUser } = require('./operations');

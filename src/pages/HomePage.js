@@ -19,7 +19,7 @@ const HomePage = () => {
       
       toast.error(contacts.error);
       return;
-    }, [contacts]);
+    }, [contacts,token.authorizationToken]);
 
     return (
     <div style={{ padding: 20 }}>

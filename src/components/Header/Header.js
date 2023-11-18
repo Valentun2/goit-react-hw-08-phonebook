@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { HeaderStyle,LinkStyle } from "./Header.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "redux/userSlise";

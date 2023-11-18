@@ -14,7 +14,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGetContacts(token.authorizationToken ));
-  }, [dispatch]);
+  }, [dispatch,token.authorizationToken]);
 
   const filterArr = contacts.arrContact.filter(contact =>
     contact.name

@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 
 export const getContacts = state => {
   return state.contacts ?? [];
