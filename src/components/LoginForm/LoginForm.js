@@ -1,4 +1,4 @@
-import { fetchCreateUser, fetchLoginUser, name } from 'redux/operations';
+import { fetchCreateUser, fetchLoginUser, } from 'redux/operations';
 import {
   Container,
   ToggleContainer,
@@ -26,7 +26,7 @@ const user = useSelector(getUser);
 useEffect(()=>{
 user.authorizationToken &&  navigate('/')
 
-},[user])
+},[user,navigate])
 
   const dispatch = useDispatch();
 
