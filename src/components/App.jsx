@@ -1,26 +1,35 @@
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
-import toast, { Toaster } from 'react-hot-toast';
-import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { useEffect } from 'react';
-import Login from './LoginForm/LoginForm';
-import LoginForm from './LoginForm/LoginForm';
+
 import { Route, Routes } from 'react-router-dom';
 import HomePage from 'pages/HomePage';
 import Layout from './Layout/Layout';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
+import LoginPage from 'pages/LoginPage';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from 'redux/selectors';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/operations';
 
 export const App = () => {
- 
-  return (
+
+  const dispatch = useDispatch();
+  const { isRefreshing } = useSelector(getUser);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+
+  return ( isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) :
     <>
     <Routes>
     <Route path="/" element={<Layout />}>
-    <Route index element={<HomePage/>}/>
+    <Route index element={  <PrivateRoute redirectTo="/login" component={<HomePage />} />}/>
 
     </Route>
-      <Route path='login' element={<LoginForm/>} />
+      <Route path='login' element={ <RestrictedRoute redirectTo="/" component={<LoginPage/>}/>} />
 
     </Routes>
     

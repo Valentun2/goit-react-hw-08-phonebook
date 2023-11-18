@@ -23,10 +23,10 @@ const HomePage = () => {
 
     return (
     <div style={{ padding: 20 }}>
-        <h1 style={{ marginBottom: 10 }}>Phonebook</h1>
+        <h1 style={{ marginBottom: 10, textAlign:"center" }}>Phonebook</h1>
         <ContactForm />
   
-        <h2 style={{ marginBottom: 10 }}>Contacts</h2>
+        <h2 style={{ marginBottom: 10,   }}>Contacts</h2>
         <Filter />
         <ContactList />
         

@@ -73,7 +73,7 @@ user.authorizationToken &&  navigate('/')
 
   return (
     <Wrraper>
-    <Container className="container active" id="1">
+    <Container className="container" id="1">
       <FormContainer className="sign-up ">
         <Form onSubmit={createUser}>
           <h2>Create account</h2>

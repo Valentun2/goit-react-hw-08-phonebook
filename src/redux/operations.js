@@ -2,6 +2,12 @@ import axios from 'axios';
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+const setAuthHeader = token => {
+  axios.defaults.headers['Authorization'] = token;
+};
+
+
+
 
 
 export const fetchDeleteContact = createAsyncThunk(
@@ -23,7 +29,8 @@ export const fetchDeleteContact = createAsyncThunk(
 export const fetchGetContacts = createAsyncThunk(
   'contact/fetchAll',
   async (token, thunkAPI) => {
-    axios.defaults.headers['Authorization'] = token;
+    setAuthHeader(token);
+
     try {
       const response = await axios.get(
         'https://connections-api.herokuapp.com/contacts'
@@ -88,6 +95,27 @@ export const fetchLoginUser = createAsyncThunk(
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.user.authorizationToken;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+    
+      setAuthHeader(persistedToken);
+      const response = await axios.get('https://connections-api.herokuapp.com/users/current');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

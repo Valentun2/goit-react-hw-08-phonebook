@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchGetContacts } from 'redux/operations';
 
 import { filterContactArr, getContacts, getUser } from 'redux/selectors';
+import { List } from './ContactList.styled';
 
 export const ContactList = () => {
 
@@ -24,7 +25,7 @@ export const ContactList = () => {
   );
 
   return (
-    <ul>
+    <List>
       {(contacts.isLoading && <p>Loading...</p>) ||
         filterArr.map(item => {
           return (
@@ -36,6 +37,6 @@ export const ContactList = () => {
             />
           );
         })}
-    </ul>
+    </List>
   );
 };

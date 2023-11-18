@@ -8,9 +8,7 @@ const Header = () => {
 dispatch(logOut())
 
 }
-useSelector((state)=>{
-    console.log(state);
-})
+
 
     const userName = useSelector(state=>state.user.user.name)|| 'User'
     return ( <HeaderStyle>
