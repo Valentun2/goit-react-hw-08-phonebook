@@ -25,9 +25,6 @@ const registerSlise = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchCreateUser.pending, (state, action) => {
-
-      })
       .addCase(fetchCreateUser.fulfilled, (state, action) => {
         state.authorizationToken = action.payload.token;
         state.user = action.payload.user;

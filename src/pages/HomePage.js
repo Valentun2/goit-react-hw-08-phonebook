@@ -2,7 +2,7 @@ import { ContactForm } from "components/ContactForm/ContactForm";
 import { ContactList } from "components/ContactList/ContactList";
 import { Filter } from "components/Filter/Filter";
 import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { getContacts, getUser } from "redux/selectors";
 
