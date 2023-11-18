@@ -16,7 +16,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from 'redux/selectors';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import toast from 'react-hot-toast';
 
 const LoginForm = () => {
   
@@ -67,7 +66,6 @@ user.authorizationToken &&  navigate('/')
     dispatch(fetchLoginUser(user));
   };
 
-  // console.log(container);
 
   return (
     <Wrraper>
